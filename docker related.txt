@@ -1,0 +1,6 @@
+docker ps           = to get all data (this will provide the Container id)
+
+
+docker exec -t -i <Container Id> bash = to get the terminal (the id will get if we try with "docker ps")
+
+docker exec -it <Container Id> psql -U postgres = for accessing database (psql)
