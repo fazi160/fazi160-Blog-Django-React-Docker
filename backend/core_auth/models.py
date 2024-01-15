@@ -10,7 +10,7 @@ class User(AbstractUser):
     username = models.CharField(max_length=50, unique=True)
     email = models.CharField(max_length=100, unique=True)
     password = models.CharField(max_length=250)
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
     user_type = models.CharField(max_length=10, choices=USER_TYPE, default='user')
 
     USERNAME_FIELD = 'email'
