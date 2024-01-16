@@ -45,7 +45,18 @@ INSTALLED_APPS = [
     'password',
 ]
 
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ORIGIN_ALLOW_ALL = False
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # React development server
+    "http://localhost:3001",  # React production build (if applicable)
+    "http://localhost:8000",  # Django backend (if needed)
+]
+
+# CORS_ALLOW_ALL_ORIGINS = True  
+# CORS_ALLOW_CREDENTIALS = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

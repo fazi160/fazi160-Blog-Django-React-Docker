@@ -26,6 +26,7 @@ class PasswordGenerator(APIView):
         # Return the serialized data as a response
         return Response(serializer.data)
 
+
     def post(self, request, *args, **kwargs):
         user = request.user
         try:
@@ -39,7 +40,7 @@ class PasswordGenerator(APIView):
             # special_char = request.data['special_char']
 
             password = password_genarator(length, types)
-            
+            print(user, title, password,"daaaaaaaaaaaaaaaaaaaaaaaaaa-----------------------------------------------------------")
             data = UserPasswords.objects.create(
                 user= user,
                 title=title,
@@ -50,6 +51,7 @@ class PasswordGenerator(APIView):
             print(e)
             return Response(status=status.HTTP_406_NOT_ACCEPTABLE)
     
+
     def delete(self, request, *args, **kwargs):
         user = request.user
 
