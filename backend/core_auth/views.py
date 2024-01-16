@@ -40,8 +40,8 @@ class LogoutView(APIView):
 
 class UserRegister(APIView):
     def post(self, request):
+        print(request.data,"request.data")
         try:
-
             username = request.data['username']
             email = request.data['email']
             password = request.data['password']
@@ -65,6 +65,7 @@ class UserRegister(APIView):
 
                 elif validation_result is not True:
                     content = {'message': 'In password ' + validation_result}
+                    print(validation_result,"password")
                     return Response(content, status=status.HTTP_412_PRECONDITION_FAILED)
 
 
@@ -95,7 +96,7 @@ class UserRegister(APIView):
 
 def is_valid_email(email):
     # Regular expression for a simple email validation
-    email_pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+    email_pattern = r'^[a-z0-9_.+-]+@[a-z0-9-]+\.[a-z-.]+$'
 
     # Check if the email matches the pattern
     if re.match(email_pattern, email):
