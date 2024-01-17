@@ -5,4 +5,4 @@ from .models import UserPasswords
 class UserPasswordsSerializer(ModelSerializer):
     class Meta:
         model = UserPasswords
-        fields = '__all__'
+        exclude = ['user']

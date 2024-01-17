@@ -55,8 +55,9 @@ class PasswordGenerator(APIView):
     def delete(self, request, *args, **kwargs):
         user = request.user
 
+        data_id = request.data['data_id']
+        print(data_id, user, '-----------------------------------------------------------------------------------')
         try:
-            data_id = request.data['data_id']
             password_instance = UserPasswords.objects.get(id=data_id)
             # Check if the password instance belongs to the authenticated user
             if password_instance.user == user:
